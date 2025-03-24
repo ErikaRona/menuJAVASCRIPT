@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../index.html">
+            <img src="../img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            PRACTICAS SEGUNDO PARCIAL
+          </a>
+        </div>
+    </nav>
+       
+    <div class="container-fluid shadow p-3 mb-5 bg-body-tertiary rounded mt-3 w-75 m-auto">
+      
+        <button class="btn btn-success" onclick="suma()">
+            <i class="bi bi-arrow-through-heart-fill"></i> Suma
+        </button>
+        <button class="btn btn-primary" onclick="rest()">
+            <i class="bi bi-dash-circle-fill"></i> Resta
+        </button>
+        <button class="btn btn-dark" onclick="multiplicacion()">
+            <i class="bi bi-x-circle-fill"></i> Multiplicación
+        </button>
+        <button class="btn btn-danger" onclick="division()">
+            <i class="bi bi-slash-circle-fill"></i> División
+        </button>
+    </div>
+
+    <script src="../bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
