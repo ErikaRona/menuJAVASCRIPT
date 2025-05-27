@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD ERI - Gestión de Categorías</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-dark" id="body">
+
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand m-auto" href="#">
+            <img src="../img/cafe.webp" alt="Logo de Cafetería Crhis" width="30" height="24" class="d-inline-block align-text-top m-auto rounded-5">
+        CRUD ERI
+          </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid shadow p-5 mb-5 bg-body-tertiary rounded mt-3 w-75">
+
+        <div class="tab-content pt-5" id="tab-content">
+            <div class="tab-pane active text-center" id="justified-tabpanel-2" role="tabpanel" aria-labelledby="justified-tab-2">
+                <h1>CRUD DE IMG</h1>
+
+                 <button type="button" class="btn btn-dark float-end my-3" data-bs-toggle="modal" data-bs-target="#addCategoriaModal">
+                    <i class="bi bi-plus-circle mx-2"></i>Agregar imagen
+                </button>
+
+                <div class="modal fade" id="addCategoriaModal" tabindex="-1" aria-labelledby="addCategoriaModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered ">
+                    <div class="modal-content bg-gradient">
+
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="addCategoriaModalLabel">NUEVA CATEGORIA</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                        
+                            <label for="imagenCategoria">Imagen</label>
+                            <input type="file" class="form-control" id="imagenCategoria" accept="image/*">
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-dark" onclick="agregarCategoria()">Agregar</button>
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="editCategoriaModal" tabindex="-1" aria-labelledby="editCategoriaModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered ">
+                        <div class="modal-content ">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="editCategoriaModalLabel">EDITAR CATEGORIA</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body text-center">
+                                <label for="eimagenCategoria">Cambiar Imagen (opcional)</label>
+                                <input type="file" class="form-control" id="eimagenCategoria" accept="image/*">
+                                <input type="hidden" id="index">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-dark" onclick="guardarCategoria()">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                        <tr class="table-success">
+                            <th>LOGO</th>
+                            <th>ELIMINAR</th>
+                            <th>EDITAR</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaCategorias"> 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="../bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>     
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AREAS</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-primary-subtle m-auto text-center" >
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid text-center m-auto">
+          <a class="navbar-brand" href="../index.html">
+            <img src="../img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            AREAS
+          </a>
+        </div>
+      </nav>
+
+      <div class="container-fluid shadow p-3 mb-5 bg-body-tertiary rounded mt-3 w-50 m-auto text-center"> 
+
+           <button class="btn btn-outline-secondary" id="btnCuadro"><i class="bi bi-app"></i>  CUADRO</button>
+           <button class="btn btn-outline-primary" id="btnRec"><i class="bi bi-aspect-ratio-fill"></i>  RECTÁNGULO</button>
+           <button class="btn btn-outline-danger" id="btnTri"><i class="bi bi-triangle-fill"></i>  TRIÁNGULO</button>
+           <button class="btn btn-outline-dark" id="btnCirculo" ><i class="bi bi-circle"></i>   CIRCULO</button>
+           <button class="btn btn-outline-success" id="btntrapecio"><i class="bi bi-balloon-heart"></i>   TRAPECIO</button><br><br>
+           <button class="btn btn-outline-warning" id="btnpentagono"><i class="bi bi-bookmark-heart-fill"></i> PENTAGONO</button>
+
+
+
+           <div class="card w-75 m-auto shadow text-center my-4" id="capa">
+              <div id="cuadro" class="bg-warning">
+                <h1 class="my-4">AREA DEL CUADRO</h1>
+                  <div class="row">
+                    <div class="col p-5">
+                      <h4>LADO</h4>
+                      <input type="range" class="form-control" id="lado" value="0" min="0" max="100"> 
+                      <h1 id="vlado" class="p-3">0</h1>
+                    </div>
+                    <div class="col p-5">
+                      <h4>AREA</h4>
+                      <h2 id="areacuadro" class="fs-1" style="font-size: 70px;">0 m<sup>2</sup></h2>
+                    </div>
+                  </div>
+              </div>
+
+
+
+              <div id="rectangulo" class="bg-info">
+                <h1 class="my-4">AREA DEL RECTANGULO</h1>
+                  <div class="row">
+                    <div class="col p-5">
+                      <h4>BASE</h4>
+                      <input type="range" class="form-control" id="baserec" value="0" min="0" max="100"> 
+                      <h1 id="vbaserec" class="p-3">0</h1>
+                      <h4>ALTURA</h4>
+                      <input type="range" class="form-control" id="alturarec" value="0" min="0" max="100"> 
+                      <h1 id="valturarec" class="p-3">0</h1>
+                    </div>
+                    <div class="col p-5">
+                      <h4>AREA</h4>
+                      <h2 id="arearec" class="fs-1">0 m<sup>2</sup></h2>
+                    </div>
+                  </div>
+              </div>
+
+
+
+              <div id="triangulo" class="bg-danger">
+                <h1 class="my-4">AREA DEL TRIÁNGULO</h1>
+                  <div class="row">
+                    <div class="col p-5">
+                      <h4>BASE</h4>
+                      <input type="range" class="form-control" id="basetri" value="0" min="0" max="100"> 
+                      <h1 id="vbasetri" class="p-3">0</h1>
+                      <h4>ALTURA</h4>
+                      <input type="range" class="form-control" id="alturatri" value="0" min="0" max="100"> 
+                      <h1 id="valturatri" class="p-3">0</h1>
+                    </div>
+                    <div class="col p-5">
+                      <h4>AREA</h4>
+                      <h2 id="areatri" class="fs-1">0 m<sup>2</sup></h2>
+                    </div>
+                  </div>
+              </div>
+
+              <div id="circulo" class="bg-info" >
+                <h1 class="my-4">AREA DEL CIRCULO</h1>
+                  <div class="row">
+                    <div class="col p-5">
+                      <h4>RADIO</h4>
+                      <input type="range" class="form-control" id="radio" value="0" min="0" max="100"> 
+                      <h1 id="vradio" class="p-3">0</h1>
+                    </div>
+                    <div class="col p-5">
+                      <h4>AREA</h4>
+                      <h2 id="areacirculo" class="fs-1">0 m<sup>2</sup></h2>
+                    </div>
+                  </div>
+              </div>
+
+
+              <div id="trapecio" class="bg-success">
+                <h1 class="my-4">AREA DEL TRAPECIO</h1>
+                  <div class="row">
+                    <div class="col p-5">
+                      <h4>BASE MENOR</h4>
+                      <input type="range" class="form-control" id="basemenor" value="0" min="0" max="100"> 
+                      <h1 id="vbasemenor" class="p-3">0</h1>
+                      <h4>BASE MAYOR</h4>
+                      <input type="range" class="form-control" id="basemayor" value="0" min="0" max="100"> 
+                      <h1 id="vbasemayor" class="p-3">0</h1>
+                      <h4>ALTURA</h4>
+                      <input type="range" class="form-control" id="alturatrapecio" value="0" min="0" max="100"> 
+                      <h1 id="valturatrapecio" class="p-3">0</h1>
+                    </div>
+                    <div class="col p-5">
+                      <h4>AREA</h4>
+                      <h2 id="areatrapecio" class="fs-1">0 m<sup>2</sup></h2>
+                    </div>
+                  </div>
+              </div>
+
+
+
+
+              <div id="pentagono" class="bg-warning">
+                <h1 class="my-4">AREA DEL PENTAGONO</h1>
+                  <div class="row">
+                    <div class="col p-5">
+                      <h4>PERIMETRO</h4>
+                      <input type="range" class="form-control" id="perimetro" value="0" min="0" max="100"> 
+                      <h1 id="vperimetro" class="p-3">0</h1>
+                      <h4>APOTEMA</h4>
+                      <input type="range" class="form-control" id="apotema" value="0" min="0" max="100"> 
+                      <h1 id="vapotema" class="p-3">0</h1>
+                      
+                    </div>
+                    <div class="col p-5">
+                      <h4>AREA</h4>
+                      <h2 id="areapentagono" class="fs-1">0 m<sup>2</sup></h2>
+                    </div>
+                  </div>
+              </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           </div>
+
+      </div>
+    <script src="../bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

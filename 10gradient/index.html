@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRADIENTE</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-danger-subtle">
+
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid ">
+            <a class="navbar-brand m-auto" href="../index.html">
+                <img src="../img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top m-auto">
+                PRACTICA 10. GRADIENTE
+            </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid shadow p-3 mb-5 bg-body-tertiary rounded mt-3 w-75 m-auto  text-center">
+        <div class="row">
+            <div class="col">
+                <h6>COLOR 1</h6>
+                <table class="w-100 m-4">
+                    <tr >
+                        <td colspan="2"> <h6>ROJO</h6></td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <input type="range" id="c1rojo"  class="form-control" min="0" max="255" value="0">
+                        </td>
+                        <td class="p-1">
+                            <h1 id="vc1rojo">0</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <tr>
+                            <td colspan="2"> <h6>VERDE</h6></td>
+                        </tr>
+                        <td>
+                            <input type="range" id="c1verde" class="form-control" min="0" max="255" value="0">
+                        </td>
+                        <td class="p-1">
+                            <h1 id="vc1verde">0</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <tr>
+                            <td colspan="2"> <h6>AZUL</h6></td>
+                        </tr>
+                        <td>
+                            <input type="range" id="c1azul" class="form-control" min="0" max="255" value="0">
+                        </td>
+                        <td class="p-1">
+                            <h1 id="vc1azul">0</h1>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col">
+                <h6>COLOR 2</h6>
+                <table class="w-100 m-4">
+                    <tr >
+                        <td colspan="2"> <h6>ROJO</h6></td>
+                    </tr>
+                    <tr>
+                        <td >
+                            <input type="range" id="c2rojo"  class="form-control" min="0" max="255" value="0">
+                        </td>
+                        <td class="p-1">
+                            <h1 id="vc2rojo">0</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <tr>
+                            <td colspan="2"> <h6>VERDE</h6></td>
+                        </tr>
+                        <td>
+                            <input type="range" id="c2verde" class="form-control" min="0" max="255" value="0">
+                        </td>
+                        <td class="p-1">
+                            <h1 id="vc2verde">0</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <tr>
+                            <td colspan="2"> <h6>AZUL</h6></td>
+                        </tr>
+                        <td>
+                            <input type="range" id="c2azul" class="form-control" min="0" max="255" value="0">
+                        </td>
+                        <td class="p-1">
+                            <h1 id="vc2azul">0</h1>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card shadow w-25 m-auto" style="height: 30px;" id="divColor1"></div>
+            </div>
+            <div class="col">
+                <div class="card shadow w-25 m-auto" style="height: 30px" id="divColor2"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h4 id="vgrados">GRADOS 0°</h4>
+                <input type="range" id="grados" min="0" max="360" value="0" class="form-control">
+
+            </div>
+            <div class="col">
+                <h4 id="vpc1">COLOR 1 0%</h4>
+                <input type="range" id="pc1" min="0" max="100" value="0" class="form-control">
+                <h4 id="vpc2">COLOR 2 0%</h4>
+                <input type="range" id="pc2" min="0" max="100" value="0" class="form-control">
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col">
+                <h4>Tipo de Gradiente</h4>
+                <select class="form-select" id="tipo">
+                    <option value="0" selected>Lineal</option>
+                    <option value="1">Radial</option>
+                </select>
+            </div>
+            <div class="col">
+                <button type="button" id="btnCambiar" class="btn btn-primary mt-4">Aplicar al Fondo</button>
+            </div>
+        </div>
+
+        <div id="divResultado" class="w-100 my-2" style="height: 200px;border:1px solid black">
+
+        </div>
+
+        <div id="divCSS" class="card shadow w-100 bg-black text-white" style="height: 50px;">
+            aquí va el css
+        </div>
+
+    </div>
+
+        <script src="../bootstrap/js/bootstrap.bundle.js"></script>
+        <script src="app.js"></script>
+
+</body>
+</html>

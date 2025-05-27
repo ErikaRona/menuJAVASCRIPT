@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-dark">
+
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand m-auto" href="../index.html">
+                <img src="../img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top m-auto">
+                PRACTICA 22. TIENDITA NAVI
+            </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid shadow p-3 mb-5 bg-body rounded mt-3 w-75 m-auto text-center">
+        <div class="d-block text-center">
+            <button type="button" class="btn btn-primary float-end my-3" data-bs-toggle="modal" data-bs-target="#agregarproducto">
+                <i class="bi bi-person-plus-fill"></i> Agregar Producto
+            </button><br><br><br>
+        </div>
+        <table class="table table-bordered" id="TablaP">
+            <thead>
+                <tr>
+                    <th>Codigo:</th>
+                    <th>Producto:</th>
+                    <th>Precio:</th>
+                    <th>Stock:</th>
+                    <th>Provedor:</th>
+                    <th>Eliminar</th>
+                    <th>Editar</th>
+                </tr>
+            </thead>
+            <tbody id="tablaProductos">
+            </tbody>
+        </table> <br><br><br><br>
+      <div class="col text-center">
+    ¿Cuál es el producto más caro?
+    <h6 id="mascaro" class="card shadow m-auto">Producto</h6>
+
+    ¿Cuál es el producto más barato?
+    <h6 id="mbarato" class="card shadow m-auto">Producto</h6>
+
+    Total de productos
+    <h6 id="total" class="card shadow m-auto">0</h6>
+
+    Total de inventario
+    <h6 id="inventario" class="card shadow m-auto">0</h6>
+</div>
+
+<div class="col text-center">
+    Stock Total
+    <h6 id="stocktotal" class="card shadow m-auto">0</h6>
+
+    Producto con menor stock
+    <h6 id="menorstock" class="card shadow m-auto">Producto</h6>
+
+    Producto con mayor stock
+    <h6 id="mayorstock" class="card shadow m-auto">Producto</h6>
+</div>
+
+
+    <div class="modal fade" id="agregarproducto" tabindex="-1" aria-labelledby="agregarproductoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="agregarproductoLabel">Registro Producto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card shadow rounded m-auto bg-danger-subtle text-dark my-4 text-center">
+                        <h1 class="mt-4">Registro Producto</h1>
+                        <label for="codigo" class="form-label">Codigo</label>
+                        <input type="number" id="codigo" class="form-control w-50 m-auto my-3" placeholder="Codigo">
+                        <label for="producto" class="form-label">Producto</label>
+                        <input type="text" id="producto" class="form-control w-50 m-auto my-3" placeholder="Producto">
+                        <label for="precio" class="form-label">Precio</label>
+                        <input type="number" id="precio" class="form-control w-50 m-auto my-3" placeholder="Precio">
+                        <label for="stock" class="form-label">Stock</label>
+                        <input type="number" id="stock" class="form-control w-50 m-auto my-3" placeholder="Stock">
+                        <label for="provedor" class="form-label">Provedor</label>
+                        <input type="text" id="provedor" class="form-control w-50 m-auto my-3" placeholder="Provedor">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="btnAdd">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Editar -->
+    <div class="modal fade" id="editproducto" tabindex="-1" aria-labelledby="editproductoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editproductoLabel">Editar Producto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="card shadow rounded m-auto bg-danger-subtle text-dark my-4 text-center">
+                        <h1 class="mt-4">Editar Producto</h1>
+                        <label for="ecodigo" class="form-label">Codigo</label>
+                        <input type="number" id="ecodigo" class="form-control w-50 m-auto my-3" placeholder="Codigo">
+                        <label for="eproducto" class="form-label">Producto</label>
+                        <input type="text" id="eproducto" class="form-control w-50 m-auto my-3" placeholder="Producto">
+                        <label for="eprecio" class="form-label">Precio</label>
+                        <input type="number" id="eprecio" class="form-control w-50 m-auto my-3" placeholder="Precio">
+                        <label for="estock" class="form-label">Stock</label>
+                        <input type="number" id="estock" class="form-control w-50 m-auto my-3" placeholder="Stock">
+                        <label for="eprovedor" class="form-label">Provedor</label>
+                        <input type="text" id="eprovedor" class="form-control w-50 m-auto my-3" placeholder="Provedor">
+
+                        <!-- Campo oculto para almacenar índice -->
+                        <input type="hidden" id="index">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" onclick="guardarProducto()">Guardar cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

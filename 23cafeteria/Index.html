@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAFETERIA CRHIS</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+   
+</head>
+<body class="bg-dark" id="body">
+
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid ">
+          <a class="navbar-brand m-auto" href="../index.html">
+            <img src="../img/cafe.webp" alt="Logo" width="30" height="24" class="d-inline-block align-text-top m-auto rounded-5">
+            CAFETERIA CRHISA
+          </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid shadow p-5 mb-5 bg-body-tertiary rounded mt-3 w-75 ">
+
+        <!--ESTAS SON LAS TABS O PESTAÑAS-->
+        <ul class="nav nav-pills nav-justified w-50 m-auto" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active fw-bold text-decoration-none bg-dark" id="justified-tab-0" data-bs-toggle="tab" href="#justified-tabpanel-0" role="tab" aria-controls="justified-tabpanel-0" aria-selected="true"> CATALOGO </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link fw-bold text-decoration-none bg-dark" id="justified-tab-1" data-bs-toggle="tab" href="#justified-tabpanel-1" role="tab" aria-controls="justified-tabpanel-1" aria-selected="true">GESTION PRODUCTOS</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link fw-bold text-decoration-none bg-dark" id="justified-tab-2" data-bs-toggle="tab" href="#justified-tabpanel-2" role="tab" aria-controls="justified-tabpanel-2" aria-selected="true">GESTION CATEGORIAS </a>
+            </li>
+        </ul>
+        <!--AQUI ACABAN LAS TABS O PESTAÑAS-->
+
+        <div class="tab-content pt-5" id="tab-content">
+
+
+             <!--CATALOGO-->
+            <div class="tab-pane active text-center" id="justified-tabpanel-0" role="tabpanel" aria-labelledby="justified-tab-0">
+                 
+                <h1>MENU</h1>
+                <input type="search" class="form-control w-50 m-auto" placeholder="Buscar" onkeyup="filtrarProductos('Todos', this.value)">
+                <div class="row w-50 m-auto mt-3" id="btnCategorias" >                   
+                </div>
+
+                <div class="mt-4 w-50 m-auto" >
+                    <ol class="list-group" id="listaProductos">
+
+                    </ol>
+                </div>
+
+            </div>
+             <!--FIN CATALOGO-->
+
+
+            <!--CRUD PRODUCTOS-->
+            <div class="tab-pane text-center" id="justified-tabpanel-1" role="tabpanel" aria-labelledby="justified-tab-1">
+             <h1>CRUD DE PRODUCTOS</h1>
+
+
+                <button type="button" class="btn btn-danger float-end my-3" data-bs-toggle="modal" data-bs-target="#addProductoModal">
+                    <i class="bi bi-person-plus mx-2"></i>Agregar Producto
+                </button>
+
+                <div class="modal fade" id="addProductoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered ">
+                    <div class="modal-content ">
+
+                        <div class="modal-header">
+
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">REGISTRO PRODUCTO</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                        </div>
+                        <div class="modal-body text-center">
+
+                        <h6>Nombre</h6>
+                        <input type="text" id="nombre"  class="form-control w-50 m-auto my-3" placeholder="Nombre">
+                        <h6 for="">Categoria</h6>
+                        <select name="" id="pcategoria" class="form-control w-50 m-auto my-3" >
+                            <option value="0">Elige Categoria</option>
+                        </select>
+                        <h6 for="">Stock</h6>
+                        <input type="number" id="stock"  class="form-control w-50 m-auto my-3" placeholder="Stock">
+                        <h6 for="">Precio</h6>
+                        <input type="number" id="precio"  class="form-control w-50 m-auto my-3" placeholder="Precio $">
+                        <h6 for="">Stock minimo</h6>
+                        <input type="number" id="stockmin"  class="form-control w-50 m-auto my-3" placeholder="Stock Minimo">
+                        
+                        </div>
+
+                        <div class="modal-footer">
+
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-dark" onclick="agregarProducto()">Agregar</button>
+
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="modal fade" id="editProductoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered ">
+                    <div class="modal-content ">
+
+                        <div class="modal-header">
+
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">EDITAR PRODUCTO</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                        </div>
+                        <div class="modal-body text-center">
+
+                        <h6>Nombre</h6>
+                        <input type="text" id="enombre"  class="form-control w-50 m-auto my-3" placeholder="Nombre">
+                        <h6 for="">Categoria</h6>
+                        <select name="" id="epcategoria" class="form-control w-50 m-auto my-3" >
+                            <option value="0">Elige Categoria</option>
+                        </select>
+                        <h6 for="">Stock</h6>
+                        <input type="number" id="estock"  class="form-control w-50 m-auto my-3" placeholder="Stock">
+                        <h6 for="">Precio</h6>
+                        <input type="number" id="eprecio"  class="form-control w-50 m-auto my-3" placeholder="Precio $">
+                        <h6 for="">Stock minimo</h6>
+                        <input type="number" id="estockmin"  class="form-control w-50 m-auto my-3" placeholder="Stock Minimo">
+                        <input type="hidden" id="pindex">
+                        </div>
+
+                        <div class="modal-footer">
+
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-dark" onclick="guardarProducto()">Guardar</button>
+
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+
+
+
+                
+                
+                
+                <table class="table  table-striped table-bordered table-hover" >
+                    <tr class="table-danger ">
+                    <th>NOMBRE</th>
+                    <th>CATEGORIA</th>
+                    <th>STOCK</th>
+                    <th>PRECIO</th>
+                    <th>STOCK MINIMO</th>
+                    <th>ACTION</th>
+                    </tr>
+                    <tbody id="tablaProductos"> 
+
+                    </tbody>
+                </table>
+
+
+
+            </div>
+            <!--FIN CRUD PRODUCTOS-->
+
+
+
+
+            <!--CRUD CATEGORIAS-->
+            <div class="tab-pane text-center" id="justified-tabpanel-2" role="tabpanel" aria-labelledby="justified-tab-2">
+                <h1>CRUD DE CATEGORIAS</h1>
+
+                 <button type="button" class="btn btn-dark float-end my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="bi bi-person-plus mx-2"></i>Agregar Categoria
+                </button>
+
+                <div class="modal fade" id="exampleModal"  data-backdrop="" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered ">
+                    <div class="modal-content bg-gradient">
+
+                        <div class="modal-header">
+
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">NUEVA CATEGORIA</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                        </div>
+                        <div class="modal-body text-center">
+
+                        <input type="text" id="categoria"  class="form-control w-50 m-auto my-3" placeholder="CATEGORIA">
+                        <input type="file" class="form-control" id="imagen">
+                        
+                        </div>
+
+                        <div class="modal-footer">
+
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-dark" onclick="agregarCategoria()">Agregar</button>
+
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="modal fade"  data-backdrop="" id="editCategoriaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered ">
+                    <div class="modal-content ">
+
+                        <div class="modal-header">
+
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">EDITAR CATEGORIA</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                        </div>
+                        <div class="modal-body text-center">
+                        
+                        <input type="text" id="ecategoria"  class="form-control w-50 m-auto my-3" placeholder="CATEGORIA">
+                        <input type="hidden" id="index">
+                        
+                        </div>
+
+                        <div class="modal-footer">
+
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-dark" onclick="guardarCategoria()">Guardar</button>
+
+                        </div>
+
+                    </div>
+                    </div>
+                </div>
+
+
+
+                
+                
+                
+                <table class="table table-bordered table-hover table-striped " >
+                    <tr class="table-success">
+                    <th>CATEGORIA</th>
+                    <th>LOGO</th>
+                    <th>ELIMINAR</th>
+                    <th>EDITAR</th>
+                    </tr>
+                    <tbody id="tablaCategorias"> 
+
+                    </tbody>
+                </table>
+
+                
+            </div>
+            <!--FIN CRUD CATEGORIAS-->
+        </div>
+
+      
+    </div>
+
+
+    
+
+        <script src="../bootstrap/js/bootstrap.bundle.js"></script>
+        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script src="../bootstrap/js/sweetalert2.all.min.js"></script>
+        <script src="app.js"></script>     
+</body>
+</html>

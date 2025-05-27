@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIGURAS</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-primary-subtle ">
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <div class="container-fluid text-center m-auto">
+          <a class="navbar-brand m-auto" href="../index.html">
+            <img src="../img/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+          FIGURAS
+          </a>
+        </div>
+      </nav>
+
+
+      <div class="container-fluid shadow p-3 mb-5 bg-body-tertiary rounded mt-3 w-50 m-auto text-center">
+<div class="row">
+
+    <div class="col w-50 p-5" >
+<h1>PROPIEDADES DE LA FIGURA</h1>
+<h4>ANCHO</h4>
+<input type="range" id="ancho" min="1" max="500" value="10" class="form-control"><span id="vancho">1</span>
+<h4>ALTO</h4>
+<input type="range" id="alto" min="1" max="500" value="10"class="form-control"><span id="valto">1</span>
+<h4>BORDER RADIUS</h4>
+<input type="range" id="radius" min="1" max="100" value="10" class="form-control"><span id="vradius">1</span>
+<h4>COLOR DE FONDO 1 </h4>
+<input type="color" id="colorfondo" value="#ffffff">
+<h4>COLOR DE FONDO 2</h4>
+<input type="color" id="colorfondo2" value="#ffffff">
+<h4>COLOR DE BORDE</h4>
+<input type="color" id="borderColor" value="#000000"><span id="vborderColor"></span>
+<h4>GROSOR DE BORDE</h4>
+<input type="range" id="borderWidth" min="0" max="20" value="0" class="form-control"><span id="vborderWidth">0px</span>
+
+    </div>
+
+
+    <div class="col">
+<h1>FIGURA</h1>
+<div id="figura" class="m-auto"></div>
+    </div>
+</div>
+
+
+    </div>
+    <script src="../bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
